@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Which Will It Be? | Stop Begging for Traffic</title>
+    <meta name="description" content="Build your own lead machine or let us build it for you. The choice is yours.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid #ff6b35;
+            color: #ff6b35;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        
+        h1 span {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        /* VSL Container */
+        .vsl-section {
+            padding: 40px 0 60px;
+            background: #0a0a0a;
+        }
+        
+        .vsl-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 56.25%;
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .vsl-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+        }
+        
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 25px solid #000;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 5px;
+        }
+        
+        .vsl-placeholder p {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        /* Choice Section */
+        .choice-section {
+            padding: 80px 0;
+            background: #0f0f0f;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .choice-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        
+        .choice-subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+        
+        .choice-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .choice-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .choice-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .choice-card:hover {
+            border-color: #ff6b35;
+            transform: translateY(-5px);
+        }
+        
+        .choice-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff6b35;
+            color: #000;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .choice-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .choice-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .choice-card p {
+            color: #888;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+        
+        .choice-cta {
+            display: inline-block;
+            padding: 15px 35px;
+            background: transparent;
+            border: 2px solid #ff6b35;
+            color: #ff6b35;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        
+        .choice-cta:hover {
+            background: #ff6b35;
+            color: #000;
+        }
+        
+        .choice-cta.primary {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+            color: #000;
+            border: none;
+        }
+        
+        .choice-cta.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="badge">The Traffic Machine</div>
+            <h1>Stop Begging for Traffic.<br><span>Build the Machine.</span></h1>
+            <p class="subtitle">Watch this first. Then choose your path.</p>
+        </div>
+    </section>
+    
+    <!-- VSL Section -->
+    <section class="vsl-section">
+        <div class="container">
+            <div class="vsl-container">
+                <div class="vsl-placeholder">
+                    <div class="play-button"></div>
+                    <p>Video loading... (HeyGen VSL)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Choice Section -->
+    <section class="choice-section">
+        <div class="container">
+            <h2 class="choice-title">Which Will It Be?</h2>
+            <p class="choice-subtitle">Two ways to stop begging for traffic. Pick what fits you.</p>
+            
+            <div class="choice-grid">
+                <div class="choice-card">
+                    <div class="choice-icon">🛠️</div>
+                    <h3>Build It Yourself</h3>
+                    <p>Use our toolkit to pick niches, build funnels, and sell leads. Full control. Lower cost. You do the work.</p>
+                    <a href="https://openclawleadmachine.com" class="choice-cta">Start Building Free →</a>
+                </div>
+                
+                <div class="choice-card featured">
+                    <div class="choice-icon">🚀</div>
+                    <h3>We Build It For You</h3>
+                    <p>Done-for-you traffic system built around your offer. We handle everything. You get the leads.</p>
+                    <a href="https://anyoffertrafficmachine.com" class="choice-cta primary">Get Your Machine →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 The Traffic Machine. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

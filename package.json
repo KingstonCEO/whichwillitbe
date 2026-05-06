@@ -1,0 +1,9 @@
+{
+  "name": "whichwillitbe",
+  "version": "1.0.0",
+  "description": "Front door VSL page for The Traffic Machine",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'",
+    "dev": "npx serve ."
+  }
+}
