@@ -17,7 +17,7 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background: #0a0a0a;
+            background: #050505;
             color: #ffffff;
             line-height: 1.6;
         }
@@ -30,60 +30,85 @@
         
         /* Hero Section */
         .hero {
-            padding: 80px 0 60px;
+            padding: 60px 0 40px;
             text-align: center;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center top, rgba(0, 255, 65, 0.08) 0%, transparent 60%);
+            pointer-events: none;
         }
         
         .badge {
             display: inline-block;
-            background: rgba(255, 107, 53, 0.1);
-            border: 1px solid #ff6b35;
-            color: #ff6b35;
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid #00ff41;
+            color: #00ff41;
             padding: 8px 20px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
         }
         
         h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 900;
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
         
-        h1 span {
-            background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        h1 .highlight {
+            color: #00ff41;
+            text-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
         }
         
-        .subtitle {
-            font-size: 1.3rem;
-            color: #888;
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-        
-        /* VSL Container */
+        /* VSL Section */
         .vsl-section {
-            padding: 40px 0 60px;
-            background: #0a0a0a;
+            padding: 20px 0 50px;
+            background: #050505;
         }
         
         .vsl-container {
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
             position: relative;
-            padding-bottom: 56.25%;
-            background: #1a1a1a;
-            border-radius: 12px;
+            background: #0a0a0a;
+            border-radius: 16px;
             overflow: hidden;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 255, 65, 0.1);
+        }
+        
+        .vsl-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        
+        .vsl-wrapper iframe,
+        .vsl-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         
         .vsl-placeholder {
@@ -97,155 +122,187 @@
             justify-content: center;
             flex-direction: column;
             gap: 20px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #111 100%);
         }
         
         .play-button {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 0 40px rgba(0, 255, 65, 0.4);
         }
         
         .play-button:hover {
             transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 0 60px rgba(0, 255, 65, 0.6);
         }
         
         .play-button::after {
             content: '';
             width: 0;
             height: 0;
-            border-left: 25px solid #000;
-            border-top: 15px solid transparent;
-            border-bottom: 15px solid transparent;
-            margin-left: 5px;
+            border-left: 28px solid #000;
+            border-top: 18px solid transparent;
+            border-bottom: 18px solid transparent;
+            margin-left: 8px;
         }
         
         .vsl-placeholder p {
-            color: #666;
+            color: #00ff41;
             font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
         }
         
-        /* Choice Section */
-        .choice-section {
-            padding: 80px 0;
-            background: #0f0f0f;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .choice-title {
+        /* CTA Section */
+        .cta-section {
+            padding: 40px 0 60px;
+            background: #050505;
             text-align: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 15px;
         }
         
-        .choice-subtitle {
-            text-align: center;
-            color: #888;
-            font-size: 1.1rem;
-            margin-bottom: 50px;
-        }
-        
-        .choice-grid {
+        .cta-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 900px;
-            margin: 0 auto;
+            gap: 25px;
+            max-width: 800px;
+            margin: 0 auto 30px;
         }
         
-        @media (max-width: 768px) {
-            .choice-grid {
+        @media (max-width: 640px) {
+            .cta-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
             }
         }
         
-        .choice-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+        .machine-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 35px 30px;
+            background: linear-gradient(145deg, #0f0f0f 0%, #0a0a0a 100%);
+            border: 2px solid rgba(0, 255, 65, 0.3);
             border-radius: 16px;
-            padding: 40px;
-            text-align: center;
+            text-decoration: none;
             transition: all 0.3s;
             position: relative;
+            overflow: hidden;
         }
         
-        .choice-card:hover {
-            border-color: #ff6b35;
-            transform: translateY(-5px);
-        }
-        
-        .choice-card.featured::before {
-            content: 'MOST POPULAR';
+        .machine-btn::before {
+            content: '';
             position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ff6b35;
-            color: #000;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00ff41, transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
         
-        .choice-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        .machine-btn:hover::before {
+            opacity: 1;
         }
         
-        .choice-card h3 {
-            font-size: 1.5rem;
+        .machine-btn:hover {
+            border-color: #00ff41;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(0, 255, 65, 0.15);
+        }
+        
+        .machine-btn.primary {
+            background: linear-gradient(145deg, rgba(0, 255, 65, 0.1) 0%, #0a0a0a 100%);
+            border-color: #00ff41;
+        }
+        
+        .machine-btn.primary:hover {
+            background: linear-gradient(145deg, rgba(0, 255, 65, 0.15) 0%, #0a0a0a 100%);
+            box-shadow: 0 20px 50px rgba(0, 255, 65, 0.25);
+        }
+        
+        .btn-icon {
+            font-size: 2.5rem;
             margin-bottom: 15px;
         }
         
-        .choice-card p {
+        .btn-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #00ff41;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .btn-text {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.3;
+        }
+        
+        .btn-sub {
+            font-size: 0.9rem;
             color: #888;
-            margin-bottom: 25px;
-            font-size: 0.95rem;
+            margin-top: 10px;
         }
         
-        .choice-cta {
-            display: inline-block;
-            padding: 15px 35px;
-            background: transparent;
-            border: 2px solid #ff6b35;
-            color: #ff6b35;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 700;
-            transition: all 0.3s;
+        .cta-tagline {
+            font-size: 1.1rem;
+            color: #666;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
         }
         
-        .choice-cta:hover {
-            background: #ff6b35;
-            color: #000;
-        }
-        
-        .choice-cta.primary {
-            background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
-            color: #000;
-            border: none;
-        }
-        
-        .choice-cta.primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        .cta-tagline span {
+            color: #00ff41;
+            font-weight: 600;
         }
         
         /* Footer */
         footer {
             padding: 40px 0;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(0, 255, 65, 0.1);
+            background: #050505;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
             color: #666;
+            text-decoration: none;
             font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #00ff41;
+        }
+        
+        footer p {
+            color: #444;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -254,8 +311,7 @@
     <section class="hero">
         <div class="container">
             <div class="badge">The Traffic Machine</div>
-            <h1>Stop Begging for Traffic.<br><span>Build the Machine.</span></h1>
-            <p class="subtitle">Watch this first. Then choose your path.</p>
+            <h1>Stop Begging For Traffic.<br><span class="highlight">Build The Machine.</span></h1>
         </div>
     </section>
     
@@ -263,41 +319,48 @@
     <section class="vsl-section">
         <div class="container">
             <div class="vsl-container">
-                <div class="vsl-placeholder">
-                    <div class="play-button"></div>
-                    <p>Video loading... (HeyGen VSL)</p>
+                <div class="vsl-wrapper">
+                    <!-- REPLACE THIS PLACEHOLDER WITH YOUR HEYGEN EMBED CODE -->
+                    <div class="vsl-placeholder" onclick="alert('Embed your 2:24 Director\'s Cut VSL here')">
+                        <div class="play-button"></div>
+                        <p>▶ DIRECTOR'S CUT (2:24)</p>
+                    </div>
+                    <!-- END PLACEHOLDER -->
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Choice Section -->
-    <section class="choice-section">
+    <!-- CTA Section -->
+    <section class="cta-section">
         <div class="container">
-            <h2 class="choice-title">Which Will It Be?</h2>
-            <p class="choice-subtitle">Two ways to stop begging for traffic. Pick what fits you.</p>
-            
-            <div class="choice-grid">
-                <div class="choice-card">
-                    <div class="choice-icon">🛠️</div>
-                    <h3>Build It Yourself</h3>
-                    <p>Use our toolkit to pick niches, build funnels, and sell leads. Full control. Lower cost. You do the work.</p>
-                    <a href="https://openclawleadmachine.com" class="choice-cta">Start Building Free →</a>
-                </div>
+            <div class="cta-grid">
+                <a href="https://anyoffertrafficmachine.com" class="machine-btn primary">
+                    <div class="btn-icon">🚀</div>
+                    <div class="btn-label">Done For You</div>
+                    <div class="btn-text">I Already Have<br>An Offer</div>
+                    <div class="btn-sub">Build Traffic For My Offer →</div>
+                </a>
                 
-                <div class="choice-card featured">
-                    <div class="choice-icon">🚀</div>
-                    <h3>We Build It For You</h3>
-                    <p>Done-for-you traffic system built around your offer. We handle everything. You get the leads.</p>
-                    <a href="https://anyoffertrafficmachine.com" class="choice-cta primary">Get Your Machine →</a>
-                </div>
+                <a href="https://openclawleadmachine.com" class="machine-btn">
+                    <div class="btn-icon">🛠️</div>
+                    <div class="btn-label">Do It Yourself</div>
+                    <div class="btn-text">I Want To Build<br>A Lead Machine</div>
+                    <div class="btn-sub">Build My Lead Machine →</div>
+                </a>
             </div>
+            
+            <p class="cta-tagline">The offer is not the problem. <span>The traffic is.</span> Choose the machine that fits where you are right now.</p>
         </div>
     </section>
     
     <!-- Footer -->
     <footer>
         <div class="container">
+            <div class="footer-links">
+                <a href="https://anyoffertrafficmachine.com">Any Offer Traffic Machine</a>
+                <a href="https://openclawleadmachine.com">OpenClaw Lead Machine</a>
+            </div>
             <p>© 2026 The Traffic Machine. All rights reserved.</p>
         </div>
     </footer>
